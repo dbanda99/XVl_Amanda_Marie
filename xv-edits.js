@@ -23,7 +23,7 @@
       dressBottom: "Code",
       formal: "Formal",
       formalInfo: "Formal attire requested",
-      colors: "Kindly reserve dusty blue and white for Amanda.",
+      colors: "Kindly reserve light shades of blue for Amanda",
       rsvp: "RSVP details coming soon. Please check back once the family confirms the RSVP contact.",
       gallery: "Photo Gallery"
     },
@@ -46,7 +46,7 @@
       dressBottom: "Vestimenta",
       formal: "Formal",
       formalInfo: "Se solicita vestimenta formal",
-      colors: "Por favor reserva los colores azul empolvado y blanco para Amanda.",
+      colors: "Por favor, reserva los tonos claros de azul para Amanda",
       rsvp: "Los detalles para confirmar asistencia estarán disponibles pronto.",
       gallery: "Galería de Fotos"
     }
@@ -72,6 +72,12 @@
         }
       });
     });
+
+    const cover = document.querySelector("#Inicio img");
+    if (cover) {
+      cover.src = "assets/images/WhatsApp Image 2026-08-03 at 7.11.36 PM.jpeg";
+      cover.removeAttribute("srcset");
+    }
   }
 
   function updateCover(c) {
@@ -118,10 +124,10 @@
     const headings = Array.from(section.querySelectorAll("h3"));
     const values = [
       [c.reception, "7:00 PM"],
-      [c.presentation, "8:00 p.m."],
-      [c.dinner, "9:00 p.m."],
-      [c.dance, "9:30 p.m."],
-      [c.farewell, "1:00 a.m."]
+      [c.presentation, "7:30 PM"],
+      [c.dinner, "8:30 PM"],
+      [c.dance, "9:00 PM"],
+      [c.farewell, "1:00 AM"]
     ];
     values.forEach((pair, index) => {
       text(headings[index * 2], pair[0]);
@@ -157,6 +163,22 @@
     const messages = section.querySelectorAll("h5");
     text(messages[0], c.giftIntro);
     text(messages[1], c.envelope);
+
+    if (!section.querySelector(".amanda-cashapp")) {
+      const cashApp = document.createElement("div");
+      const label = document.createElement("p");
+      const qr = document.createElement("img");
+
+      cashApp.className = "amanda-cashapp";
+      label.className = "amanda-cashapp-label";
+      label.textContent = "Cash App";
+      qr.src = "assets/images/cashapp-qr.png";
+      qr.alt = "Cash App QR code for Amanda Marie's Sweet Sixteen";
+      qr.width = 220;
+      qr.height = 220;
+      cashApp.append(label, qr);
+      section.querySelector("div.h-full")?.appendChild(cashApp);
+    }
   }
 
   function updateDressCode(c) {
@@ -215,7 +237,7 @@
     #Inicio > div:last-child { text-align: center; }
     counter_8_elegance > scroller > div:first-child,
     counter_8_elegance [style*="background-image"] {
-      background-image: url("assets/images/WhatsApp%20Image%202026-08-03%20at%207.11.36%20PM.jpeg") !important;
+      background-image: url("assets/images/WhatsApp%20Image%202026-08-03%20at%207.11.26%20PM.jpeg") !important;
       background-position: 50% 45% !important;
       background-size: cover !important;
       background-repeat: no-repeat !important;
@@ -224,9 +246,12 @@
     #Ubicaciones img[alt="Salón"] { width: 100%; max-height: 340px; object-fit: cover; image-rendering: auto; }
     .amanda-address { display: inline-block; margin-top: .55rem; font-family: Arial, sans-serif; font-size: .9rem; font-weight: 400; letter-spacing: .03em; text-transform: none; }
     #MesaDeRegalos h5 { line-height: 1.5; }
+    .amanda-cashapp { display: grid; justify-items: center; gap: .45rem; margin: 1.25rem auto .25rem; }
+    .amanda-cashapp-label { margin: 0; color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    .amanda-cashapp img { display: block; width: min(220px, 72vw); height: auto; border: 8px solid #fff; border-radius: 6px; background: #fff; box-shadow: 0 8px 22px rgba(34, 53, 66, .2); }
     #CodigoDeVestimenta h3:last-child { max-width: 34rem; margin: .5rem auto 0; }
     sugerenciahospedaje_elegance [style*="background-image"]:not([style*="texture.jpg"]) {
-      background-image: url("assets/images/WhatsApp%20Image%202026-08-03%20at%207.11.27%20PM.jpeg") !important;
+      background-image: url("assets/images/WhatsApp%20Image%202026-08-03%20at%207.11.27%20PM%20%281%29.jpeg") !important;
       background-position: 50% 52% !important;
       background-size: cover !important;
       background-repeat: no-repeat !important;
