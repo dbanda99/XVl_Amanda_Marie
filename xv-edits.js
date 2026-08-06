@@ -117,7 +117,7 @@
     if (!section) return;
     const headings = Array.from(section.querySelectorAll("h3"));
     const values = [
-      [c.reception, "7:00 p.m."],
+      [c.reception, "7:00 PM"],
       [c.presentation, "8:00 p.m."],
       [c.dinner, "9:00 p.m."],
       [c.dance, "9:30 p.m."],
